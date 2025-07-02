@@ -1,0 +1,38 @@
+plugins {
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android") // harus sesuai dengan di settings.gradle
+    id("com.google.gms.google-services")
+    id("dev.flutter.flutter-gradle-plugin")
+}
+
+android {
+    namespace = "com.example.yourapp"
+    compileSdk = 33 // atau 36
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    defaultConfig {
+        applicationId = "com.example.praktikum_1"
+        minSdk = 23
+        targetSdk = 33 // atau 36
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug
+        }
+    }
+}
+
+flutter {
+    source = "../.."
+}
